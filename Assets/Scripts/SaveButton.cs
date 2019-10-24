@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.IO;
 
 [System.Serializable]
-public class Plus : MonoBehaviour
+public class SaveButton : MonoBehaviour
 {
 
     List<UserData> data = new List<UserData>();
