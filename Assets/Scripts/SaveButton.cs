@@ -18,12 +18,25 @@ public class SaveButton : MonoBehaviour
     public string fieldTextemail;
 
 
+    public Text tx;
+
+    UserDataList userDataList = new UserDataList();
+
+    private void Awake()
+    {
+        LoadUserData();
+    }
 
     private void Save()
     {
         fieldTextName = inputFieldName.text;
         fieldTextNumber = inputFieldNumber.text;
         fieldTextemail = inputFieldEmail.text;
+        
+
+        data.Add(new UserData(fieldTextName, fieldTextNumber, fieldTextemail));
+        Debug.Log(data);
+        
     }
 
     public void SaveUserData()
@@ -38,12 +51,14 @@ public class SaveButton : MonoBehaviour
         File.WriteAllText(path, userJData);
 
         Debug.Log("추가 완료");
+        Debug.Log(path);
         print(userJData);
     }
 
     public void LoadUserData()
     {
-
+        string userJData = File.ReadAllText(Application.persistentDataPath + "/data.json");
+        tx.text = userJData;
     }
 
 }
@@ -57,7 +72,7 @@ public class UserDataList
 public class UserData
 
 {
-    public UserData(string name, int number, string email)
+    public UserData(string name, string number, string email)
     {
         this.name = name;
         this.number = number;
@@ -65,7 +80,7 @@ public class UserData
     }
 
     public string name;
-    public int number;
+    public string number;
     public string email;
 
 }
