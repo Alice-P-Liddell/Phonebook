@@ -7,19 +7,16 @@ using System.IO;
 [System.Serializable]
 public class SaveButton : MonoBehaviour
 {
-
     List<UserData> data = new List<UserData>();
     public InputField inputFieldName;
-    public InputField inputFieldNumber;
-    public InputField inputFieldEmail;
+    //public InputField inputFieldNumber;
+    //public InputField inputFieldEmail;
 
     public string fieldTextName;
-    public string fieldTextNumber;
-    public string fieldTextemail;
-
+    //public string fieldTextNumber;
+    //public string fieldTextemail;
 
     public Text tx;
-
     UserDataList userDataList = new UserDataList();
 
     private void Awake()
@@ -30,13 +27,11 @@ public class SaveButton : MonoBehaviour
     private void Save()
     {
         fieldTextName = inputFieldName.text;
-        fieldTextNumber = inputFieldNumber.text;
-        fieldTextemail = inputFieldEmail.text;
-        
+        //fieldTextNumber = inputFieldNumber.text;
+        //fieldTextemail = inputFieldEmail.text;
 
-        data.Add(new UserData(fieldTextName, fieldTextNumber, fieldTextemail));
+        data.Add(new UserData(fieldTextName));
         Debug.Log(data);
-        
     }
 
     public void SaveUserData()
@@ -60,7 +55,6 @@ public class SaveButton : MonoBehaviour
         string userJData = File.ReadAllText(Application.persistentDataPath + "/data.json");
         tx.text = userJData;
     }
-
 }
 
 public class UserDataList
@@ -70,18 +64,16 @@ public class UserDataList
 
 [System.Serializable]
 public class UserData
-
 {
-    public UserData(string name, string number, string email)
+    public UserData(string name)
     {
         this.name = name;
-        this.number = number;
-        this.email = email;
+        //this.number = number;
+        //this.email = email;
     }
 
     public string name;
-    public string number;
-    public string email;
-
+    //public string number;
+    //public string email;
 }
 

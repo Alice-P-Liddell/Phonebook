@@ -30,9 +30,4 @@ public class GameManager : MonoBehaviour                                 //XML�
         streamWriter.Close();                                           //StreamWriter타입변수.Close() : 저장하고 닫기
                                                                         //StreamWriter타입변수.Flush() : 저장
     }
-
-    void Update()
-    {
-        
-    }
 }
