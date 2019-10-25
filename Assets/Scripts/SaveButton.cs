@@ -56,24 +56,3 @@ public class SaveButton : MonoBehaviour
         tx.text = userJData;
     }
 }
-
-public class UserDataList
-{
-    public List<UserData> userDatas;
-}
-
-[System.Serializable]
-public class UserData
-{
-    public UserData(string name)
-    {
-        this.name = name;
-        //this.number = number;
-        //this.email = email;
-    }
-
-    public string name;
-    //public string number;
-    //public string email;
-}
-

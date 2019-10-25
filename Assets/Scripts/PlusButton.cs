@@ -1,35 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlusButton : MonoBehaviour
 {
-    public GameObject backPanel;
-    public GameObject plusPanel;
+    public GameObject addPanel;
+    public InputField nameInputField;
 
     [SerializeField]
     private bool isPanelOn;
 
     private void Start()
     {
-        plusPanel.SetActive(false);
-        backPanel.SetActive(false);
         isPanelOn = false;
+        addPanel.SetActive(false);
+        nameInputField.text = null;
     }
 
     public void OpenPlusPanel()
     {
         if (!isPanelOn)
         {
-            plusPanel.SetActive(true);
-            backPanel.SetActive(true);
+            addPanel.SetActive(true);
+            //StartCoroutine("PanelAnim");
         }
         else
         {
-            plusPanel.SetActive(false);
-            backPanel.SetActive(false);
+            //StartCoroutine("PanelAnim");
+            addPanel.SetActive(false);
+            nameInputField.text = null;
         }
 
         isPanelOn = !isPanelOn;
     }
+
+    /*
+    IEnumerator PanelAnim()
+    {
+        while (addPanel.transform.position.y < 0)
+        {
+            addPanel.transform.Translate(Vector2.up * 2, Space.Self);
+
+        }
+        yield return null;
+    }
+    */
 }
